@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyBrainTrainGame-master.iml" filepath="$PROJECT_DIR$/MyBrainTrainGame-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/projectlibs/MyGame/MyGame.iml" filepath="$PROJECT_DIR$/app/projectlibs/MyGame/MyGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fishgameapp/fishgameapp.iml" filepath="$PROJECT_DIR$/fishgameapp/fishgameapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/projectlibs/projectLibs.iml" filepath="$PROJECT_DIR$/app/projectlibs/projectLibs.iml" />
+    </modules>
+  </component>
+</project>

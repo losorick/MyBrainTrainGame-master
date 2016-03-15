@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyBrainTrain</string>
+
+    <string name="navigation_drawer_open">这里还什么也没有</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_fullscreen_game01">FullscreenGame01Activity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">游戏\n测试</string>
+</resources>
