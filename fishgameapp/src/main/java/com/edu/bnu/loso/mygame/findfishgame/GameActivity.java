@@ -27,19 +27,10 @@ public class GameActivity extends Activity {
     final int gameHeight = 400;
     final int gameWidth = 300;
     final int fish_file_count = 4;
-    int fish_time_count = 5;
+    int fish_time_count = 15;
     TextView fish_time;
-    Timer timer = new Timer();
-    TimerTask task = new TimerTask() {
-
-        @Override
-        public void run() {
-            // 需要做的事:发送消息
-            Message message = new Message();
-            message.what = 1;
-            handler.sendMessage(message);
-        }
-    };
+    public Timer timer;
+    TimerTask task ;
 
     Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -50,7 +41,8 @@ public class GameActivity extends Activity {
                         timer.cancel();
                         Intent intent = new Intent();                         //这是里计数结束
                         intent.setClass(GameActivity.this, showResultActivity.class);
-                        intent.putExtra("score",score);
+                        intent.putExtra("score", score);
+                        showRankingListActivity.addDestoryActivity(GameActivity.this,"Game");
                         startActivity(intent);
                     }
                 }
@@ -75,19 +67,38 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        pauseActivity.addDestoryActivity(GameActivity.this,"Game");
-
+        pauseActivity.addDestoryActivity(GameActivity.this, "Game");
+        timer = new Timer();
         fish_time = (TextView) findViewById(R.id.text_fish_time);
-        timer.schedule(task, 0, 1000);
+
         final Button button = (Button) findViewById(R.id.buttonfishpause);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Intent intent = new Intent();                         //这是里计数结束
+                Intent intent = new Intent();
                 intent.setClass(GameActivity.this, pauseActivity.class);
+                task.cancel();
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+    super.onResume();
+        task = new TimerTask() {
+
+            @Override
+            public void run() {
+                // 需要做的事:发送消息
+                Message message = new Message();
+                message.what = 1;
+                handler.sendMessage(message);
+            }
+        };
+
+
+        timer.schedule(task, 1000, 1000);
+        Log.d("onResume","" + 1);
     }
 
     private void newGame(){
@@ -175,7 +186,6 @@ public class GameActivity extends Activity {
 
             }
         });
-
         //播放鱼群等待的画面
         Animation fish_animation= AnimationUtils.loadAnimation(this, R.anim.fish_anim);
         MoveImageView fish = (MoveImageView)findViewById(R.id.image_fish);
@@ -195,7 +205,6 @@ public class GameActivity extends Activity {
             }
         });
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //继承了Activity的onTouchEvent方法，直接监听点击事件
@@ -230,9 +239,7 @@ public class GameActivity extends Activity {
                         showResult(0);
                     }
                 }
-
             }
-
         }
         return super.onTouchEvent(event);
     }

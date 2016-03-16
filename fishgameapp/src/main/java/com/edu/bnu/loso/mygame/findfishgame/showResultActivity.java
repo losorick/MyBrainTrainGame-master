@@ -3,6 +3,8 @@ package com.edu.bnu.loso.mygame.findfishgame;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import com.edu.bnu.loso.mygame.R;
 import org.w3c.dom.Text;
 
 public class showResultActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +61,32 @@ public class showResultActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation arg0) {
+
             }
         });
 
+    }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_CANCEL) {
+        }
+
+        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+            //当手指离开的时候
+            showRankingListActivity.addDestoryActivity(showResultActivity.this, "ResultActivity");
+            Intent intent = new Intent();                         //这是里计数结束
+            intent.setClass(showResultActivity.this, showRankingListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
+            return false;
+        }
+        return false;
     }
 }

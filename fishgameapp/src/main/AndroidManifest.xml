@@ -20,8 +20,12 @@
         <activity
             android:name=".findfishgame.showResultActivity"
             android:theme="@style/Mytranscutestyle" />
-        <activity android:name=".findfishgame.pauseActivity"
-            android:theme="@style/MyTheme"/>
+        <activity
+            android:name=".findfishgame.pauseActivity"
+            android:theme="@style/MyTheme" />
+        <activity android:name=".findfishgame.showRankingListActivity"
+            android:theme="@style/AppTheme"
+            ></activity>
     </application>
 
 </manifest>
