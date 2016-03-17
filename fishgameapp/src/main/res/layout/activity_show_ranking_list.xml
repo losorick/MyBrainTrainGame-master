@@ -20,6 +20,27 @@
         android:layout_marginTop="25dp"
         android:textColor="#606060" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.87"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:id="@+id/relativeLayout"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:src="@drawable/flag01"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -27,7 +48,9 @@
         android:layout_below="@+id/rankgametitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:weightSum="1"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,5 +148,18 @@
         android:layout_below="@+id/nextGameView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:src="@drawable/star_10"
+        android:layout_toStartOf="@+id/pastBestView"
+        android:layout_toLeftOf="@+id/pastBestView"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="visible" />
 
 </RelativeLayout>

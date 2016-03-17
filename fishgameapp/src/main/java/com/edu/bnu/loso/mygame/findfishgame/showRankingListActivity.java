@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.edu.bnu.loso.mygame.R;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -38,6 +40,15 @@ public class showRankingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_ranking_list);
         destoryActivity("Game");
         destoryActivity("ResultActivity");
+
+        int score;
+        Intent intent = getIntent();
+        score = (int) intent.getSerializableExtra("score");
+        TextView Rank3 = (TextView)findViewById(R.id.Rank3);
+        Rank3.setText("3.\t\t" + score);
+
+        TextView currentCountView = (TextView)findViewById(R.id.currentCountView);
+        currentCountView.setText("" + (int)(score/100) + "条");
 
         final Button nextGameButton = (Button) findViewById(R.id.nextGameView);     //这里是测试，应该推荐到下一个游戏，并在并传递一个Intent的值，
         nextGameButton.setOnClickListener(new View.OnClickListener() {              //看看是不是要关闭这个activity

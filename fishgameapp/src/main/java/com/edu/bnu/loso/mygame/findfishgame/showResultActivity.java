@@ -76,6 +76,7 @@ public class showResultActivity extends Activity {
             showRankingListActivity.addDestoryActivity(showResultActivity.this, "ResultActivity");
             Intent intent = new Intent();                         //这是里计数结束
             intent.setClass(showResultActivity.this, showRankingListActivity.class);
+            intent.putExtra("score", getIntent().getSerializableExtra("score"));
             startActivity(intent);
             finish();
         }
